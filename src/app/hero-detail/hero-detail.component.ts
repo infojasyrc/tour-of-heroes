@@ -5,7 +5,6 @@ import { Location } from '@angular/common';
 import { HeroService } from './../hero.service';
 import { Hero } from '../_models/hero';
 
-
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',

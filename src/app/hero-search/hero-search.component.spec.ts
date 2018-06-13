@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { AppRoutingModule } from './../app-routing.module';
+
 import { HeroSearchComponent } from './hero-search.component';
 
 describe('HeroSearchComponent', () => {
@@ -8,7 +10,8 @@ describe('HeroSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeroSearchComponent ]
+      declarations: [ HeroSearchComponent ],
+      imports: [ AppRoutingModule ]
     })
     .compileComponents();
   }));
