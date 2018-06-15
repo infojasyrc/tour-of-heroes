@@ -1,8 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppRoutingModule } from './../app-routing.module';
+import { APP_BASE_HREF } from '@angular/common';
 
-import { HeroSearchComponent } from './hero-search.component';
+import { AppRoutingModule } from './../app-routing.module';
+import { FormsModule } from '@angular/forms';
+
+import { DashboardComponent } from './../dashboard/dashboard.component';
+import { HeroesComponent } from './../heroes/heroes.component';
+import { HeroDetailComponent } from './../hero-detail/hero-detail.component';
+import { HeroSearchComponent } from './../hero-search/hero-search.component';
 
 describe('HeroSearchComponent', () => {
   let component: HeroSearchComponent;
@@ -10,8 +16,16 @@ describe('HeroSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeroSearchComponent ],
-      imports: [ AppRoutingModule ]
+      declarations: [
+        DashboardComponent,
+        HeroesComponent,
+        HeroDetailComponent,
+        HeroSearchComponent
+      ],
+      imports: [ FormsModule, AppRoutingModule ],
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/' }
+      ]
     })
     .compileComponents();
   }));
