@@ -1,8 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { APP_BASE_HREF } from '@angular/common';
+
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './../app-routing.module';
 
-import { DashboardComponent } from './dashboard.component';
+import { DashboardComponent } from './../dashboard/dashboard.component';
+import { HeroDetailComponent } from './../hero-detail/hero-detail.component';
+import { HeroesComponent } from './../heroes/heroes.component';
 import { HeroSearchComponent } from './../hero-search/hero-search.component';
 
 describe('DashboardComponent', () => {
@@ -13,9 +18,17 @@ describe('DashboardComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         DashboardComponent,
+        HeroesComponent,
+        HeroDetailComponent,
         HeroSearchComponent
       ],
-      imports: [ AppRoutingModule ]
+      imports: [
+        FormsModule,
+        AppRoutingModule
+      ],
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/dashboard' }
+      ]
     })
     .compileComponents();
   }));
