@@ -4,6 +4,9 @@ import { APP_BASE_HREF } from '@angular/common';
 
 import { AppRoutingModule } from './../app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { of } from 'rxjs';
+
+import { HeroService } from './../hero.service';
 
 import { DashboardComponent } from './../dashboard/dashboard.component';
 import { HeroesComponent } from './../heroes/heroes.component';
@@ -15,6 +18,10 @@ describe('HeroSearchComponent', () => {
   let fixture: ComponentFixture<HeroSearchComponent>;
 
   beforeEach(async(() => {
+    const heroService = jasmine.createSpyObj('HeroService', ['searchHeroes']);
+
+    heroService.searchHeroes.and.returnValue(of([]));
+
     TestBed.configureTestingModule({
       declarations: [
         DashboardComponent,
@@ -24,6 +31,7 @@ describe('HeroSearchComponent', () => {
       ],
       imports: [ FormsModule, AppRoutingModule ],
       providers: [
+        { provide: HeroService, useValue: heroService },
         { provide: APP_BASE_HREF, useValue: '/' }
       ]
     })
