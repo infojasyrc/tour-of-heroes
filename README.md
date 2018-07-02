@@ -1,4 +1,5 @@
 # Tour Of Heroes
+![Build Status](https://travis-ci.org/infojasyrc/tour-of-heroes.svg?branch=master)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
